@@ -31,7 +31,7 @@ public class Insurance {
     driver.findElement(By.xpath ("//ul[contains(@class,'kitt-top-menu__list_center')]/li/*[contains(text(),'Страхование')]")).click();
     driver.findElement(By.xpath ("//*[contains(text(),'Все страховые программы')]")).click();
     driver.findElement(By.xpath ("//div[contains(@class,'product-catalog__carousel_row')]/div[contains(@data-product,'Страхование путешественников')]")).click();
-        Wait<WebDriver> wait = new WebDriverWait(driver, 10, 1000);
+        Wait<WebDriver> wait = new WebDriverWait(driver, 10, 3000);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[contains(text(),'Страхование путешественников')][contains(@class,'kitt-heading')]"))));
         assertEquals("Страхование путешественников",driver.findElement(By.xpath("//*[contains(text(),'Страхование путешественников')][contains(@class,'kitt-heading')]")).getText());
         if(!driver.findElements(By.xpath("//div[contains(@class,'kitt-cookie-warning')][contains(@style,'display: block;')]//button[contains(@class,'kitt-cookie-warning__close')]")).isEmpty()){
@@ -41,10 +41,8 @@ public class Insurance {
         for(String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
-
             driver.findElement(By.xpath("//h3[contains(text(),'Минимальная')]")).click();
-            driver.findElement(By.xpath("//button[contains(text(),'Оформить')]")).click();
-            driver.findElement(By.xpath("//button[contains(text(),'Оформить')]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Оформить')]")))).click();
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//legend[contains(text(),'Застрахованные')]"))));
             fillField(By.xpath("//input[contains(@placeholder, 'Surname')]"), "Буаев");
             fillField(By.xpath("//input[contains(@placeholder, 'Name')]"), "Крил");
@@ -92,7 +90,6 @@ public class Insurance {
     private void fillField(By locator, String value) throws InterruptedException {
         driver.findElement(locator).click();
         driver.findElement(locator).clear();
-        Thread.sleep(1000);
         driver.findElement(locator).sendKeys(value);
     }
     }
