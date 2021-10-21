@@ -54,11 +54,10 @@ public class Insurance {
             fillField(By.id("person_lastName"), "Буаев");
             fillField(By.id("person_middleName"), "Втальевч");
             fillField(By.id("person_birthDate"), "10.01.1963");
-        driver.findElement(By.xpath("//input[contains(@id,'person_firstName')]")).click();
+            driver.findElement(By.xpath("//input[contains(@id,'person_firstName')]")).click();
 
-        if(!driver.findElements(By.xpath("//label[contains(@class,'btn ng-untouched ng-pristine ng-valid active')][contains(text(),'Женский')]")).isEmpty()){
             driver.findElement(By.xpath("//label[contains(@class,'btn ng-untouched ng-pristine ng-valid')][contains(text(),'Мужской')]")).click();
-        }
+
             fillField(By.id("passportSeries"), "1234");
             fillField(By.id("passportNumber"), "567890");
             fillField(By.id("documentDate"), "10.01.2020");
