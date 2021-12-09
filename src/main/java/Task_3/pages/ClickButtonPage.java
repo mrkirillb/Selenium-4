@@ -1,6 +1,5 @@
-package pages;
+package Task_3.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,8 +22,11 @@ public class ClickButtonPage extends BasePage {
     }
 
 
-    public void sendButton(String itemName) {
-        driver.findElement(By.xpath("//span[text() = '" + itemName + "']")).click();
+    public void sendButton() {
+        sendButton.click();
+    }
+    public void sendButton2() {
+        sendButton2.click();
     }
 
 }

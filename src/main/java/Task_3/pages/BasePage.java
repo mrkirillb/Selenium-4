@@ -1,4 +1,4 @@
-package pages;
+package Task_3.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BasePage {
     WebDriver driver;
+
 
     public boolean isElementPresent(By by) {
         try {
@@ -25,7 +26,6 @@ public class BasePage {
     }
 
     public void checkFillField(String value, WebElement element) {
-
         assertEquals(value, element.getAttribute("value"));
     }
 }

@@ -1,4 +1,4 @@
-package pages;
+package Task_3.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,6 +16,8 @@ public class OptionsInsurancePage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Оформить')]")
     public WebElement sendButton;
 
+
+
     public OptionsInsurancePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -26,6 +28,12 @@ public class OptionsInsurancePage extends BasePage {
     }
 
     public void sendButton(String itemName) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollBy(0, 5000)", "");
+        driver.findElement(By.xpath("//*[@class='layout-wrapper']")).click();
+        driver.findElement(By.xpath("//button[text() = '" + itemName + "']")).click();
+    }
+    public void sendButton2(String itemName) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0, 5000)", "");
         driver.findElement(By.xpath("//*[@class='layout-wrapper']")).click();

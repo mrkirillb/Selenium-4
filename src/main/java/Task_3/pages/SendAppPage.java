@@ -1,4 +1,4 @@
-package pages;
+package Task_3.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -83,58 +83,34 @@ public class SendAppPage extends BasePage {
         }
     }
 
-    public void getFillField(String fieldName, String value){
-        try {
-            if ("Фамилия застрахованного".equals(fieldName)) {
-                //return surnameIns.getAttribute("value");
-                assertEquals(value, surnameIns.getAttribute("value"));
-            }
-
-            if ("Имя".equals(fieldName)) {
-                //return nameIns.getAttribute("value");
-                assertEquals(value, nameIns.getAttribute("value"));
-            }
-
-            if ("Дата рождения застрахованного".equals(fieldName)) {
-                //return birthDateIns.getAttribute("value");
-                assertEquals(value, birthDateIns.getAttribute("value"));
-            }
-            if ("Имя страхователя".equals(fieldName)) {
-                //return firstName.getAttribute("value");
-                assertEquals(value, firstName.getAttribute("value"));
-            }
-            if ("Дата рождения страхователя".equals(fieldName)) {
-                //return birthDate.getAttribute("value");
-                assertEquals(value, birthDate.getAttribute("value"));
-            }
-            if ("Отчество страхователя".equals(fieldName)) {
-                //return middleName.getAttribute("value");
-                assertEquals(value, middleName.getAttribute("value"));
-            }
-            if ("Серия паспорта".equals(fieldName)) {
-                //return passportSeries.getAttribute("value");
-                assertEquals(value, passportSeries.getAttribute("value"));
-            }
-            if ("Номер паспорта".equals(fieldName)) {
-                //return passportNumber.getAttribute("value");
-                assertEquals(value, passportNumber.getAttribute("value"));
-            }
-            if ("Фамилия страхователя".equals(fieldName)) {
-                //return lastName.getAttribute("value");
-                assertEquals(value, lastName.getAttribute("value"));
-            }
-            if ("Дата выдачи".equals(fieldName)) {
-                //return documentDate.getAttribute("value");
-                assertEquals(value, documentDate.getAttribute("value"));
-            }
-            if ("Кем выдан".equals(fieldName)) {
-                //return documentIssue.getAttribute("value");
-                assertEquals(value, documentIssue.getAttribute("value"));
-            }
-        }catch (Exception e) {
-            new AssertionError("Поле '" + fieldName + "' не объявлено на странице");
+    public String getFillField(String fieldName) {
+        switch (fieldName) {
+            case "Фамилия застрахованного":
+                return surnameIns.getAttribute("value");
+            case "Имя застрахованного":
+                return nameIns.getAttribute("value");
+            case "Дата рождения застрахованного":
+                return birthDateIns.getAttribute("value");
+            case "Имя страхователя":
+                return firstName.getAttribute("value");
+            case "Дата рождения страхователя":
+                return birthDate.getAttribute("value");
+            case "Отчество страхователя":
+                return middleName.getAttribute("value");
+            case "Серия паспорта":
+                return passportSeries.getAttribute("value");
+            case "Номер паспорта":
+                return passportNumber.getAttribute("value");
+            case "Фамилия страхователя":
+                return lastName.getAttribute("value");
+            case "Дата выдачи":
+                return documentDate.getAttribute("value");
+            case "Кем выдан":
+                return documentIssue.getAttribute("value");
         }
+        throw new AssertionError("Поле "+fieldName+" не найдено");
     }
+
 
 
 
