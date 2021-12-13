@@ -15,12 +15,12 @@ public class OptionsInsuranceSteps {
         assertTrue(String.format("Заголовок равен [%s]. Ожидалось - [%s]", actualTitle, expectedTitle), actualTitle.contains(expectedTitle2));
     }
 
-    @Step("нажата кнопка -  {0}")
+    @Step("Нажимаем кнопку -  {0}")
     public void sendButton(){
         new OptionsInsurancePage(BaseSteps.getDriver()).sendButton.click();
 
     }
-    @Step("выбран тип страхования -  {0}")
+    @Step("Выбираем тип страхования -  {0}")
     public void selectType(String itemName) {
         new OptionsInsurancePage(BaseSteps.getDriver()).selectType(itemName);
 

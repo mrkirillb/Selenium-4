@@ -19,29 +19,29 @@ public class SendAppSteps {
         new SendAppPage(BaseSteps.getDriver()).fillField(field, value);
     }
 
-    @Step("поле |{0}| заполнено значением - {1}")
+    @Step("Проверяем, что поле |{0}| заполнено значением - {1}")
     public void checkFillField(String field, String value){
         String actual = new SendAppPage(BaseSteps.getDriver()).getFillField(field);
         assertTrue(String.format("Значение поля |[%s]| равно - [%s]. Ожидалось - [%s]", field, actual, value), actual.equals(value));
     }
 
-    @Step("заполняются поля")
+    @Step("Наполнение полей")
     public void fillFields(HashMap<String, String> fields){
         fields.forEach((k, v)-> fillField(k,v));
     }
 
-    @Step("поля заполнены верно")
+    @Step("Проверка полей")
     public void checkFillFields(HashMap<String, String> fields){
         fields.forEach((k, v)-> checkFillField(k,v));
     }
 
-    @Step("нажата кнопка - {0}")
+    @Step("Нажимаем кнопку - {0}")
     public void sendButton(){
         new SendAppPage(BaseSteps.getDriver()).sendButton.click();
     }
 
 
-    @Step("в поле |{0}| присутствует сообщение об ошибке - {1}")
+    @Step("В поле |{0}| присутствует сообщение об ошибке - {1}")
     public void checkErrorMessageField(String field,  String value){
         new SendAppPage(BaseSteps.getDriver()).checkFieldErrorMessage(field, value);
     }
