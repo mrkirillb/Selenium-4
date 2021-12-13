@@ -1,9 +1,9 @@
-package Task_3.steps;
+package steps;
 
-import Task_3.TestProperties;
+import util.TestProperties;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.qameta.allure.Attachment;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -40,7 +40,7 @@ public class BaseSteps {
         driver.get(baseUrl);
     }
 
-    @AfterClass
+    @After
     public static void tearDown() throws Exception {
         driver.quit();
     }

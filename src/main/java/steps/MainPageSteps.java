@@ -1,22 +1,22 @@
-package Task_3.steps;
+package steps;
 
-import Task_3.pages.MainPage;
+import pages.MainPage;
 import io.qameta.allure.Step;
 
-public class MainPageSteps extends BaseSteps {
+public class MainPageSteps {
 
     @Step("Закрытие предупреждения cookie-файлов")
     public void waitSendAppClickable(){
-        new MainPage(driver).waitSendAppClickable();
+        new MainPage(BaseSteps.getDriver()).waitSendAppClickable();
     }
 
     @Step("Выбираем пункт меню {0}")
     public void selectMainMenu(String itemName){
-        new MainPage(driver).selectMainMenu(itemName);
+        new MainPage(BaseSteps.getDriver()).selectMainMenu(itemName);
     }
 
     @Step("Выбираем пункт меню {0}")
     public void selectSubMenu(String itemName){
-        new MainPage(driver).selectSubMenu(itemName);
+        new MainPage(BaseSteps.getDriver()).selectSubMenu(itemName);
     }
 }

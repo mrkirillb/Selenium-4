@@ -1,11 +1,12 @@
-package Task_3.pages;
+package pages;
 
+import steps.BaseSteps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ClickButtonPage extends BasePage {
+public class ClickButtonPage {
 
     @FindBy(xpath = "//h1[contains(text(), 'Страхование путешественников')]")
     public WebElement title;
@@ -17,8 +18,7 @@ public class ClickButtonPage extends BasePage {
     public WebElement sendButton2;
 
     public ClickButtonPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+        PageFactory.initElements(BaseSteps.getDriver(), this);
     }
 
 

@@ -1,5 +1,6 @@
-package Task_3.pages;
+package pages;
 
+import steps.BaseSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -61,8 +62,7 @@ public class SendAppPage extends BasePage {
 
 
     public SendAppPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+        PageFactory.initElements(BaseSteps.getDriver(), this);
     }
 
     public void fillField(String fieldName, String value){
@@ -117,11 +117,11 @@ public class SendAppPage extends BasePage {
     public void checkFieldErrorMessage(String field, String errorMessage){
         if (field.equals("Мобильный телефон") || field.equals("Электронная почта")||field.equals( "Повтор электронной почты")) {
             String xpath = "//*[contains(@title, '" + field + "')]//*[contains(text(), 'Поле не заполнено')]";
-            String actualValue = driver.findElement(By.xpath(xpath)).getText();
+            String actualValue = BaseSteps.getDriver().findElement(By.xpath(xpath)).getText();
             assertEquals(errorMessage, actualValue);
         } else {
             String xpath = "//*[@class='alert-form alert-form-error']";
-            String actualValue = driver.findElement(By.xpath(xpath)).getText();
+            String actualValue = BaseSteps.getDriver().findElement(By.xpath(xpath)).getText();
             assertEquals(errorMessage, actualValue);
         }
 
